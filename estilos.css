@@ -2,100 +2,63 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: white;
+    background: linear-gradient(135deg, #1e5799, #2989d8, #7db9e8);
     min-height: 100vh;
     padding: 20px;
-    transition: background 0.5s ease;
 }
 
-/* Fondos según el clima */
-
-body.clima-soleado {
-    background: linear-gradient(135deg, #f12711, #f5af19);
-}
-
-body.clima-nublado {
-    background: linear-gradient(135deg, #606c88, #3f4c6b);
-}
-
-body.clima-lluvioso {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-}
-
-body.clima-nieve {
-    background: linear-gradient(135deg, #e6dada, #274046);
-}
-
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.banner {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.banner:hover {
-    transform: scale(1.02);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    color: #e0e0e0;
-}
-
-main {
-    max-width: 800px;
+.contenedor {
+    max-width: 500px;
     margin: 0 auto;
     text-align: center;
 }
 
-.buscador {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+/* 🖼️ RETO 1: Estilo del banner */
+.banner {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-#inputCiudad {
-    padding: 15px 25px;
-    border: 2px solid white;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.2);
+.banner img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+h1 {
     color: white;
-    font-size: 1rem;
-    width: 300px;
-    outline: none;
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
-#inputCiudad::placeholder {
-    color: #cccccc;
+.buscador {
+    margin-bottom: 25px;
+}
+
+input {
+    padding: 10px 15px;
+    width: 280px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-right: 8px;
 }
 
 button {
-    background: white;
-    color: #1e3c72;
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #1e5799;
     border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
+    border-radius: 20px;
     font-weight: bold;
-    border-radius: 25px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -104,99 +67,93 @@ button:hover {
 }
 
 .resultado {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 30px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.resultado.visible {
-    display: block;
+.resultado h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-.resultado .ciudad {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.resultado .pais {
-    font-size: 1.2rem;
-    color: #e0e0e0;
-    margin-bottom: 20px;
-}
-
-.icono-clima {
-    width: 100px;
-    height: 100px;
+.resultado h3 {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
 }
 
 .temperatura {
-    font-size: 3.5rem;
+    font-size: 48px;
     font-weight: bold;
-    margin: 10px 0;
+    color: #1e5799;
+    margin: 15px 0;
 }
 
 .descripcion {
-    font-size: 1.3rem;
+    font-size: 16px;
+    color: #555;
     margin-bottom: 20px;
+    text-transform: capitalize;
 }
 
 .detalles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .detalle {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 15px;
+    background: #e8f4fc;
+    padding: 10px;
+    border-radius: 8px;
 }
 
-.etiqueta {
-    font-size: 0.85rem;
-    color: #cccccc;
-    text-transform: uppercase;
-}
-
-.valor {
-    font-size: 1.3rem;
+.detalle-label {
+    font-size: 11px;
+    color: #555;
     font-weight: bold;
-    margin-top: 5px;
 }
 
-#estado {
-    margin-top: 20px;
-    color: #e0e0e0;
-    font-style: italic;
+.detalle-valor {
+    font-size: 14px;
+    color: #1e5799;
+    font-weight: bold;
+}
+
+.actualizado {
+    color: white;
+    font-size: 12px;
+    margin: 10px 0;
 }
 
 footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #cccccc;
-    font-size: 0.85rem;
+    color: white;
+    font-size: 12px;
+    margin-top: 20px;
+    opacity: 0.8;
 }
 
-@media (max-width: 600px) {
-
-    header h1 {
-        font-size: 1.8rem;
+/* 📱 RETO 2: Que se vea bien en celular */
+@media (max-width: 480px) {
+    input {
+        width: 100%;
+        margin-bottom: 10px;
     }
-
-    #inputCiudad {
+    
+    button {
         width: 100%;
     }
-
-    .temperatura {
-        font-size: 2.5rem;
+    
+    .detalles {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .banner {
-        max-width: 100%;
+    
+    h1 {
+        font-size: 16px;
     }
 }
