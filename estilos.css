@@ -1,41 +1,151 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   padding: 1rem;
-  transition: background 0.5s ease;
+  transition: background 0.5s ease, color 0.3s ease;
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #ffffff; /* Color de texto blanco por defecto para resaltar sobre los gradientes */
   text-align: center;
 }
 
+/* Fondos según el clima */
 body.clima-soleado { background: linear-gradient(135deg, #f12711, #f5af19); }
 body.clima-nublado { background: linear-gradient(135deg, #606c88, #3f4c6b); }
 body.clima-lluvioso { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
-body.clima-nieve { background: linear-gradient(135deg, #e6dada, #274046); }
-body.modo-oscuro { background: #1a1a1a !important; color: #f0f0f0; }
+body.clima-nieve { background: linear-gradient(135deg, #e6dada, #274046); color: #222222; }
 
-header, main, footer { max-width: 450px; margin: 0 auto; }
-.banner { max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 1rem; }
-h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+/* Modo Oscuro */
+body.modo-oscuro {
+  background: #1a1a1a !important;
+  color: #f0f0f0 !important;
+}
 
-.boton-tema { margin: 0.5rem; padding: 0.6rem 1rem; border-radius: 8px; border: none; cursor: pointer; background: rgba(0,0,0,0.1); }
-body.modo-oscuro .boton-tema { background: rgba(255,255,255,0.15); }
+/* Contenedores Principales */
+header, main, footer {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
 
-.buscador { margin: 1rem 0; }
-input, button { padding: 0.7rem 1rem; border: none; border-radius: 8px; margin: 0.3rem; font-size: 1rem; }
-button { cursor: pointer; background: rgba(255,255,255,0.3); transition: 0.2s; }
-button:hover { background: rgba(255,255,255,0.5); }
+/* Banner de Canva */
+.banner {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
 
-.boton-ubicacion { background: rgba(0,0,0,0.1); }
-body.modo-oscuro .boton-ubicacion { background: rgba(255,255,255,0.15); }
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 
-.historial { margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-.historial button { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+/* Botones y Búsqueda */
+.boton-tema {
+  margin: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: rgba(0,0,0,0.15);
+  color: inherit;
+}
 
-.resultado { margin-top: 1.5rem; padding: 1.2rem; border-radius: 12px; background: rgba(255,255,255,0.2); }
-.temperatura { font-size: 2rem; font-weight: bold; margin: 0.5rem 0; }
-.boton-compartir { margin-top: 1rem; }
-.error { color: #c0392b; }
+body.modo-oscuro .boton-tema {
+  background: rgba(255,255,255,0.15);
+}
 
-footer { margin-top: 2rem; font-size: 0.8rem; opacity: 0.7; }
+.buscador {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+input, button {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input {
+  width: calc(100% - 120px);
+  min-width: 180px;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: rgba(255,255,255,0.3);
+  color: inherit;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.5);
+  transform: scale(1.02);
+}
+
+.boton-ubicacion {
+  background: rgba(0,0,0,0.15);
+}
+
+body.modo-oscuro .boton-ubicacion {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Historial */
+.historial {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.historial button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Tarjeta de Resultados */
+.resultado {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.temperatura {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.boton-compartir {
+  margin-top: 1rem;
+}
+
+.error {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
