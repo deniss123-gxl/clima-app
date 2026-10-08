@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background 0.5s ease;
+}
+
+/* Fondos según el clima */
+
+body.clima-soleado {
+    background: linear-gradient(135deg, #f12711, #f5af19);
+}
+
+body.clima-nublado {
+    background: linear-gradient(135deg, #606c88, #3f4c6b);
+}
+
+body.clima-lluvioso {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+body.clima-nieve {
+    background: linear-gradient(135deg, #e6dada, #274046);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.banner {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.banner:hover {
+    transform: scale(1.02);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #e0e0e0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.buscador {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+#inputCiudad {
+    padding: 15px 25px;
+    border: 2px solid white;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    width: 300px;
+    outline: none;
+}
+
+#inputCiudad::placeholder {
+    color: #cccccc;
+}
+
+button {
+    background: white;
+    color: #1e3c72;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.resultado {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.resultado.visible {
+    display: block;
+}
+
+.resultado .ciudad {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.resultado .pais {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.icono-clima {
+    width: 100px;
+    height: 100px;
+}
+
+.temperatura {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.descripcion {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.detalle {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.etiqueta {
+    font-size: 0.85rem;
+    color: #cccccc;
+    text-transform: uppercase;
+}
+
+.valor {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#estado {
+    margin-top: 20px;
+    color: #e0e0e0;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #cccccc;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #inputCiudad {
+        width: 100%;
+    }
+
+    .temperatura {
+        font-size: 2.5rem;
+    }
+
+    .banner {
+        max-width: 100%;
+    }
+}
